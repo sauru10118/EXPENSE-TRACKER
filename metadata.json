@@ -1,0 +1,6 @@
+{
+  "name": "Expense Tracker",
+  "description": "Comprehensive expense tracking app with graphs, pie charts, location-specific spending, Excel export, and AI financial analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,339 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════
+   🎨  CLAY & COLORFUL THEME
+   Claymorphism: puffy inner shadows, soft rounded shapes,
+   candy-colored palette, translucent glass-clay cards.
+   ═══════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Rounded playful font ── */
+  --font-sans: 'Nunito', 'Plus Jakarta Sans', sans-serif;
+
+  /* ── Warm Clay Neutrals (replaces cold slate) ── */
+  --color-slate-50:  #FFF7F0;
+  --color-slate-100: #FFEAD6;
+  --color-slate-200: #F0D4BA;
+  --color-slate-300: #DDBEA0;
+  --color-slate-400: #B4957A;
+  --color-slate-500: #937560;
+  --color-slate-600: #74594A;
+  --color-slate-700: #564138;
+  --color-slate-800: #382924;
+  --color-slate-900: #2B1E15;
+  --color-slate-950: #1A110A;
+
+  /* ── Clay Shadows (puffy 3D look) ── */
+  --shadow-xs:  5px 5px 12px rgba(170, 130, 90, 0.10),
+                -3px -3px 8px rgba(255, 255, 255, 0.70),
+                inset 1px 1px 3px rgba(255, 255, 255, 0.50),
+                inset -1px -1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm:  7px 7px 16px rgba(170, 130, 90, 0.10),
+                -4px -4px 10px rgba(255, 255, 255, 0.75),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.50),
+                inset -1px -1px 3px rgba(0, 0, 0, 0.03);
+  --shadow-md:  10px 10px 22px rgba(170, 130, 90, 0.12),
+                -5px -5px 14px rgba(255, 255, 255, 0.80),
+                inset 3px 3px 6px rgba(255, 255, 255, 0.45),
+                inset -2px -2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg:  14px 14px 30px rgba(170, 130, 90, 0.14),
+                -7px -7px 18px rgba(255, 255, 255, 0.82),
+                inset 3px 3px 7px rgba(255, 255, 255, 0.45),
+                inset -2px -2px 5px rgba(0, 0, 0, 0.05);
+  --shadow-xl:  18px 18px 38px rgba(170, 130, 90, 0.16),
+                -9px -9px 22px rgba(255, 255, 255, 0.85),
+                inset 4px 4px 9px rgba(255, 255, 255, 0.40),
+                inset -3px -3px 6px rgba(0, 0, 0, 0.06);
+  --shadow-2xl: 22px 22px 46px rgba(170, 130, 90, 0.18),
+                -11px -11px 26px rgba(255, 255, 255, 0.88),
+                inset 5px 5px 11px rgba(255, 255, 255, 0.40),
+                inset -3px -3px 7px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ══════════════════════════════════════
+   🌈  COLORFUL GRADIENT BACKGROUND
+   ══════════════════════════════════════ */
+
+body {
+  background:
+    linear-gradient(145deg,
+      #FFDEE9 0%,     /* bubblegum pink  */
+      #E8D5FF 17%,    /* lavender        */
+      #D0EAFF 34%,    /* baby blue       */
+      #D0FFE8 50%,    /* mint cream      */
+      #FFF5D0 67%,    /* lemon chiffon   */
+      #FFE0CC 84%,    /* soft peach      */
+      #FFDEE9 100%    /* pink loop       */
+    ) !important;
+  background-attachment: fixed !important;
+}
+
+
+/* ══════════════════════════════════════
+   🧊  GLASS-CLAY CARDS
+   ══════════════════════════════════════ */
+
+.bg-white {
+  background: rgba(255, 255, 255, 0.68) !important;
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+}
+
+/* Sticky header — frosted clay */
+.bg-white\/95 {
+  background: rgba(255, 255, 255, 0.58) !important;
+  backdrop-filter: blur(22px) saturate(200%);
+  -webkit-backdrop-filter: blur(22px) saturate(200%);
+}
+
+
+/* ══════════════════════════════════════
+   🎆  DARK SECTIONS → CANDY GRADIENTS
+   ══════════════════════════════════════ */
+
+/* AI Insight Banner (from-emerald-900 via-teal-900 to-slate-900) */
+.from-emerald-900.via-teal-900.to-slate-900 {
+  background: linear-gradient(135deg,
+    #7C3AED 0%,    /* vivid purple  */
+    #C084FC 30%,   /* soft violet   */
+    #F472B6 65%,   /* hot pink      */
+    #FB923C 100%   /* tangerine     */
+  ) !important;
+}
+
+/* Health Score Card (from-slate-900 to-slate-800) */
+.from-slate-900.to-slate-800 {
+  background: linear-gradient(140deg,
+    #4338CA 0%,    /* indigo        */
+    #6366F1 45%,   /* periwinkle    */
+    #818CF8 100%   /* soft blue     */
+  ) !important;
+}
+
+/* Chat Header & dark panels */
+div.bg-slate-900[class*="text-white"][class*="p-4"] {
+  background: linear-gradient(135deg, #5B21B6, #7C3AED) !important;
+}
+
+/* Selected "All Categories" pill & user chat bubbles */
+button.bg-slate-900 {
+  background: #6D28D9 !important;
+  border-color: #6D28D9 !important;
+}
+
+/* User chat message bubbles */
+div.bg-slate-900.text-white[class*="rounded"] {
+  background: linear-gradient(135deg, #4338CA, #6D28D9) !important;
+}
+
+/* AI bot avatar */
+.bg-emerald-600[class*="rounded-lg"][class*="w-7"],
+.bg-emerald-600[class*="rounded-lg"][class*="w-8"] {
+  background: linear-gradient(135deg, #06D6A0, #0FBE6D) !important;
+}
+
+/* Slate-800 user avatar */
+.bg-slate-800[class*="rounded-lg"][class*="w-7"] {
+  background: linear-gradient(135deg, #7C3AED, #A78BFA) !important;
+}
+
+/* emerald-500/20 style badges in dark areas */
+.bg-emerald-500\/20 {
+  background: rgba(16, 216, 138, 0.22) !important;
+}
+
+
+/* ══════════════════════════════════════
+   🫧  PUFFY CLAY BUTTONS
+   ══════════════════════════════════════ */
+
+/* Primary green CTA */
+button.bg-emerald-600,
+a.bg-emerald-600 {
+  background: linear-gradient(145deg, #10D88A, #07A55C) !important;
+  box-shadow:
+    5px 5px 12px rgba(7, 165, 92, 0.28),
+    -3px -3px 8px rgba(180, 255, 210, 0.30),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.22),
+    inset -1px -1px 3px rgba(0, 50, 25, 0.14) !important;
+  border: none !important;
+}
+
+button.bg-emerald-600:hover,
+a.bg-emerald-600:hover {
+  background: linear-gradient(145deg, #0FBE6D, #048A4B) !important;
+  box-shadow:
+    3px 3px 8px rgba(7, 165, 92, 0.34),
+    -2px -2px 6px rgba(180, 255, 210, 0.35),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.28),
+    inset -1px -1px 4px rgba(0, 50, 25, 0.16) !important;
+}
+
+/* Expense type button (rose) */
+button.bg-rose-600 {
+  background: linear-gradient(145deg, #FF6B8A, #E82D5D) !important;
+  box-shadow:
+    5px 5px 12px rgba(232, 45, 93, 0.28),
+    -3px -3px 8px rgba(255, 180, 200, 0.30),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.18),
+    inset -1px -1px 3px rgba(100, 0, 30, 0.14) !important;
+  border: none !important;
+}
+
+/* AI Sparkle button (emerald-500 bg in banner) */
+button.bg-emerald-500 {
+  background: linear-gradient(145deg, #FDE68A, #FBBF24) !important;
+  color: #78350F !important;
+  box-shadow:
+    4px 4px 10px rgba(251, 191, 36, 0.30),
+    -2px -2px 6px rgba(255, 250, 200, 0.40),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.35),
+    inset -1px -1px 3px rgba(120, 53, 15, 0.10) !important;
+  border: none !important;
+}
+
+/* Export / secondary outline buttons */
+.bg-emerald-50 {
+  box-shadow:
+    3px 3px 8px rgba(7, 165, 92, 0.08),
+    -2px -2px 5px rgba(255, 255, 255, 0.60),
+    inset 1px 1px 3px rgba(255, 255, 255, 0.50),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Logo icon – make it a colorful gradient pill */
+.bg-gradient-to-tr.from-emerald-600.to-teal-500 {
+  background: linear-gradient(135deg, #F472B6, #C084FC, #818CF8) !important;
+}
+
+
+/* ══════════════════════════════════════
+   ✏️  CLAY INPUTS (inset pressed look)
+   ══════════════════════════════════════ */
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  background: rgba(255, 252, 248, 0.82) !important;
+  box-shadow:
+    inset 3px 3px 6px rgba(0, 0, 0, 0.055),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.65) !important;
+  border: 1.5px solid rgba(215, 185, 155, 0.30) !important;
+  border-radius: 14px !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow:
+    inset 3px 3px 6px rgba(0, 0, 0, 0.055),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.65),
+    0 0 0 3px rgba(124, 58, 237, 0.18) !important;
+  border-color: rgba(124, 58, 237, 0.40) !important;
+}
+
+
+/* ══════════════════════════════════════
+   📊  RECHARTS TOOLTIP
+   ══════════════════════════════════════ */
+
+.recharts-default-tooltip {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 14px !important;
+  border: 1.5px solid rgba(200, 180, 255, 0.30) !important;
+  box-shadow:
+    8px 8px 18px rgba(0, 0, 0, 0.08),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.55) !important;
+  color: #2B1E15 !important;
+}
+
+
+/* ══════════════════════════════════════
+   📜  SCROLLBAR (candy colored)
+   ══════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 235, 215, 0.30);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #C084FC, #F9A8D4);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 240, 225, 0.30);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #A855F7, #EC4899);
+}
+
+
+/* ══════════════════════════════════════
+   🦶  FOOTER
+   ══════════════════════════════════════ */
+
+footer {
+  background: rgba(255, 255, 255, 0.42) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: rgba(255, 220, 190, 0.25) !important;
+}
+
+
+/* ══════════════════════════════════════
+   🔤  SELECTION HIGHLIGHT
+   ══════════════════════════════════════ */
+
+::selection {
+  background: #C084FC !important;
+  color: white !important;
+}
+
+
+/* ══════════════════════════════════════
+   💎  AI QUICK-FILL BOX → candy tint
+   ══════════════════════════════════════ */
+
+.from-emerald-50\/70.via-teal-50\/50.to-blue-50\/70 {
+  background: linear-gradient(135deg,
+    rgba(232, 213, 255, 0.55),
+    rgba(255, 222, 233, 0.45),
+    rgba(208, 234, 255, 0.55)
+  ) !important;
+  border-color: rgba(192, 132, 252, 0.30) !important;
+}
+
+
+/* ══════════════════════════════════════
+   🏷️  BADGE PILLS (subtle clay depth)
+   ══════════════════════════════════════ */
+
+[class*="rounded-full"][class*="px-2"],
+[class*="rounded-full"][class*="px-1"] {
+  box-shadow:
+    2px 2px 5px rgba(0, 0, 0, 0.05),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.45);
+}
+
+
+/* ══════════════════════════════════════
+   📋  TABLE HEADER
+   ══════════════════════════════════════ */
+
+thead {
+  background: rgba(255, 235, 215, 0.55) !important;
+}
+
+table {
+  border-radius: 16px;
+  overflow: hidden;
+}

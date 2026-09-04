@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: expense-tracker
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: APP_USERNAME
+        value: shree
+      - key: APP_PASSWORD
+        value: sweri
+      - key: DATABASE_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+
