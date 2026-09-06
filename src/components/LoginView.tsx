@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Wallet,
   Lock,
   User,
   Eye,
@@ -107,8 +106,8 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
         <div className="relative bg-white/95 backdrop-blur-xl border border-slate-200 rounded-3xl p-7 sm:p-9 shadow-2xl">
           {/* Header Brand */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-500/25 mb-4 transform hover:scale-105 transition-transform">
-              <Wallet className="w-8 h-8" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl overflow-hidden shadow-xl shadow-emerald-500/25 border border-emerald-500/30 bg-slate-900 mb-4 transform hover:scale-105 transition-transform">
+              <img src="/logo.jpg" alt="Expense Tracker Logo" className="w-full h-full object-cover" />
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               SpendWise AI
