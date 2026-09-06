@@ -40,22 +40,9 @@ export async function syncAndLoadTransactions(): Promise<{
     const data = await res.json();
 
     if (data.connected && Array.isArray(data.data)) {
-      if (data.data.length > 0) {
-        // Cache in local storage as well for offline resilience
-        saveTransactions(data.data);
-        return { transactions: data.data, fromAiven: true };
-      } else {
-        // Aiven is connected but empty -> Seed initial transactions to Aiven!
-        const local = loadTransactions();
-        if (local.length > 0) {
-          fetch("/api/transactions/sync", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ transactions: local }),
-          }).catch(console.error);
-        }
-        return { transactions: local, fromAiven: true };
-      }
+      // Cache in local storage as well for offline resilience
+      saveTransactions(data.data);
+      return { transactions: data.data, fromAiven: true };
     }
   } catch (err) {
     console.warn("Could not load from Aiven DB, using local storage:", err);
