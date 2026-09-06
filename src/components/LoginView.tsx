@@ -8,7 +8,6 @@ import {
   ArrowRight,
   ShieldCheck,
   Sparkles,
-  KeyRound,
   AlertCircle,
   CheckCircle2,
 } from "lucide-react";
@@ -25,13 +24,6 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [rememberMe, setRememberMe] = useState(true);
-
-  // Quick helper to fill in requested credentials
-  const handleQuickFill = () => {
-    setUsername("shree");
-    setPassword("sweri");
-    setErrorMessage(null);
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -127,29 +119,6 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
             </p>
           </div>
 
-          {/* Quick Credential Hint Banner */}
-          <div className="mb-6 p-3.5 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200/80 flex items-center justify-between gap-3 shadow-xs">
-            <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-emerald-600 rounded-lg text-white">
-                <KeyRound className="w-4 h-4" />
-              </div>
-              <div className="text-left text-xs">
-                <p className="font-bold text-emerald-950">App Credentials</p>
-                <p className="text-emerald-800 font-medium">
-                  User: <span className="font-mono font-bold bg-white/80 px-1 py-0.5 rounded text-emerald-900">shree</span> &bull; Pass: <span className="font-mono font-bold bg-white/80 px-1 py-0.5 rounded text-emerald-900">sweri</span>
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              id="btn-quick-fill"
-              onClick={handleQuickFill}
-              className="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-xs font-semibold rounded-lg shadow-xs transition-all cursor-pointer whitespace-nowrap"
-            >
-              Auto Fill
-            </button>
-          </div>
-
           {/* Error Message Alert */}
           {errorMessage && (
             <div
@@ -182,7 +151,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                   required
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Enter username (shree)"
+                  placeholder="Enter your username"
                   className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all"
                 />
               </div>
@@ -209,7 +178,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter password (sweri)"
+                  placeholder="Enter your password"
                   className="w-full pl-10 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all"
                 />
                 <button
