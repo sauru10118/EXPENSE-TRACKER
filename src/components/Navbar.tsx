@@ -6,7 +6,6 @@ import {
   Sparkles,
   FileSpreadsheet,
   Settings,
-  Wallet,
   LogOut,
   UserCheck,
 } from "lucide-react";
@@ -51,8 +50,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between h-16">
           {/* Logo & Brand */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab("dashboard")}>
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20">
-              <Wallet className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md shadow-emerald-500/20 border border-emerald-500/20 flex items-center justify-center bg-slate-900">
+              <img src="/logo.jpg" alt="Expense Tracker Logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <div className="flex items-center space-x-2">
