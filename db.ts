@@ -21,7 +21,7 @@ export function getDbPool(): pg.Pool | null {
     // Prevent Node from rejecting Aiven's self-signed CA certificate in certificate chain
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-    // Clean URL: strip quotes, whitespace, and sslmode parameter to prevent strict CA rejection
+    // Clean URL: strip quotes, whitespace, and sslmode parameter to prevent pg-connection-string strict verification
     const cleanConnectionString = databaseUrl
       .trim()
       .replace(/^["']+|["']+$/g, "")
@@ -235,6 +235,14 @@ export async function dbDeleteTransaction(id: string): Promise<boolean> {
 
   const res = await p.query("DELETE FROM transactions WHERE id = $1 RETURNING id;", [id]);
   return (res.rowCount ?? 0) > 0;
+}
+
+export async function dbClearAllTransactions(): Promise<boolean> {
+  const p = getDbPool();
+  if (!p || !isConnected) throw new Error("Database not connected");
+
+  await p.query("TRUNCATE TABLE transactions;");
+  return true;
 }
 
 export async function dbBulkSyncTransactions(transactions: Transaction[]): Promise<number> {
