@@ -1,13 +1,17 @@
 import { Transaction, BudgetConfig, AuthUser } from "../types";
 import { INITIAL_TRANSACTIONS, DEFAULT_BUDGET_CONFIG } from "./mockData";
 
-const TRANSACTIONS_KEY = "spendwise_transactions_v1";
+const TRANSACTIONS_KEY = "spendwise_transactions_v2";
 const BUDGET_KEY = "spendwise_budget_v1";
 const AUTH_KEY = "spendwise_auth_user_v1";
 
-
 export function loadTransactions(): Transaction[] {
   try {
+    // Purge legacy v1 mock transactions if they exist
+    if (localStorage.getItem("spendwise_transactions_v1")) {
+      localStorage.removeItem("spendwise_transactions_v1");
+    }
+
     const raw = localStorage.getItem(TRANSACTIONS_KEY);
     if (!raw) {
       localStorage.setItem(TRANSACTIONS_KEY, JSON.stringify(INITIAL_TRANSACTIONS));
