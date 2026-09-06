@@ -10,6 +10,7 @@ import {
   dbInsertTransaction,
   dbUpdateTransaction,
   dbDeleteTransaction,
+  dbClearAllTransactions,
   dbBulkSyncTransactions,
   dbGetBudgetConfig,
   dbSaveBudgetConfig,
@@ -91,6 +92,21 @@ app.delete("/api/transactions/:id", async (req, res) => {
     return res.json({ success });
   } catch (err: any) {
     console.error("Error deleting transaction from Aiven DB:", err.message);
+    return res.status(500).json({ error: err.message });
+  }
+});
+
+// Clear all transactions from Aiven DB
+app.delete("/api/transactions", async (_req, res) => {
+  try {
+    const status = getDbStatus();
+    if (!status.connected) {
+      return res.status(503).json({ error: "Aiven Database not connected" });
+    }
+    await dbClearAllTransactions();
+    return res.json({ success: true, message: "All transactions wiped" });
+  } catch (err: any) {
+    console.error("Error clearing all transactions in Aiven DB:", err.message);
     return res.status(500).json({ error: err.message });
   }
 });
